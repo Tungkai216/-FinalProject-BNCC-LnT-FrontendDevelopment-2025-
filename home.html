@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THRIFTER.com - Home</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .modal-enter {
+        opacity: 0;
+        transform: scale(0.9);
+        transition: all 0.3s ease-out;
+      }
+      .modal-enter-active {
+        opacity: 1;
+        transform: scale(1);
+      }
+    </style>
+    <script defer>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      let cart = JSON.parse(localStorage.getItem("cart") || "[]");
+
+      function addToCart(product) {
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert(product.name + " berhasil ditambahkan ke keranjang!");
+      }
+
+      function openModal(name, price, image) {
+        const modal = document.getElementById("product-modal");
+        document.getElementById("modal-image").src = image;
+        document.getElementById("modal-name").innerText = name;
+        document.getElementById("modal-price").innerText = `Rp${price}`;
+        modal.classList.remove("hidden");
+        setTimeout(() => modal.classList.add("modal-enter-active"), 10);
+      }
+
+      function closeModal() {
+        const modal = document.getElementById("product-modal");
+        modal.classList.remove("modal-enter-active");
+        setTimeout(() => modal.classList.add("hidden"), 300);
+      }
+    </script>
+  </head>
+  <body class="font-sans">
+    <!-- Header -->
+    <header class="bg-black text-white p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">THRIFTER.com</h1>
+      <div class="md:hidden">
+        <button onclick="toggleMenu()" class="focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="home.html" class="hover:text-yellow-400">Home</a>
+        <a href="about.html" class="hover:text-yellow-400">About</a>
+        <a href="shop.html" class="hover:text-yellow-400">Shop</a>
+        <a href="cart.html" class="hover:text-yellow-400">Keranjang</a>
+        <a href="profile.html" class="hover:text-yellow-400">Profile</a>
+        <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+      </nav>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden bg-black text-white px-4 py-2 space-y-2"
+    >
+      <a href="home.html" class="block hover:text-yellow-400">Home</a>
+      <a href="about.html" class="block hover:text-yellow-400">About</a>
+      <a href="shop.html" class="block hover:text-yellow-400">Shop</a>
+      <a href="cart.html" class="block hover:text-yellow-400">Keranjang</a>
+      <a href="profile.html" class="block hover:text-yellow-400">Profile</a>
+      <a href="contact.html" class="block hover:text-yellow-400">Contact</a>
+    </div>
+
+    <!-- Promo Section -->
+    <section class="p-4 text-center">
+      <div class="bg-yellow-300 p-6 rounded shadow">
+        <h2 class="text-2xl font-bold mb-2">PROMO MINGGU INI!</h2>
+        <p>Diskon hingga 50% untuk semua produk sweater & jeans!</p>
+      </div>
+    </section>
+
+    <!-- Produk Unggulan -->
+    <section class="p-6">
+      <h2 class="text-xl font-bold mb-4 text-center">Produk Unggulan</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        <!-- Produk 1 -->
+        <div class="border p-4 rounded shadow relative">
+          <span
+            class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+            >Best Seller</span
+          >
+          <span
+            class="absolute top-2 right-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded"
+            >⭐ 4.8</span
+          >
+          <img
+            src="sweater.jpeg"
+            alt="Sweater Abu-Abu"
+            class="w-full h-48 object-cover rounded mb-2"
+          />
+          <p class="text-yellow-500 font-semibold text-center">Rp125.000</p>
+        </div>
+
+        <!-- Produk 2 -->
+        <div class="border p-4 rounded shadow relative">
+          <span
+            class="absolute top-2 right-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded"
+            >⭐ 4.6</span
+          >
+          <img
+            src="jeans.jpeg"
+            alt="Celana Jeans"
+            class="w-full h-48 object-cover rounded mb-2"
+          />
+          <p class="text-yellow-500 font-semibold text-center">Rp100.000</p>
+        </div>
+
+        <!-- Produk 3 -->
+        <div class="border p-4 rounded shadow relative">
+          <span
+            class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded"
+            >Best Seller</span
+          >
+          <span
+            class="absolute top-2 right-2 bg-yellow-400 text-black text-xs font-semibold px-2 py-1 rounded"
+            >⭐ 4.9</span
+          >
+          <img
+            src="over.jpg"
+            alt="Jaket Denim"
+            class="w-full h-48 object-cover rounded mb-2"
+          />
+          <p class="text-yellow-500 font-semibold text-center">Rp150.000</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal Produk -->
+    <div
+      id="product-modal"
+      class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="bg-white rounded-lg shadow-lg max-w-sm w-full p-6 relative modal-enter"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-2 right-2 text-gray-600 hover:text-black"
+        >
+          &times;
+        </button>
+        <img
+          id="modal-image"
+          src=""
+          alt="Product Image"
+          class="w-full h-64 object-cover rounded mb-4"
+        />
+        <h3 id="modal-name" class="text-xl font-semibold mb-2"></h3>
+        <p id="modal-price" class="text-yellow-500 font-bold mb-4"></p>
+        <button
+          onclick="closeModal()"
+          class="bg-yellow-300 px-4 py-2 rounded hover:bg-yellow-400"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-12">
+      <div
+        class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        <div>
+          <h4 class="font-bold text-lg mb-2">THRIFTER.com</h4>
+          <p class="text-sm">
+            Platform belanja baju thrift berkualitas dan terkurasi untuk
+            generasi hemat dan sadar lingkungan.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-2">Navigasi</h4>
+          <ul class="space-y-1 text-sm">
+            <li><a href="home.html" class="hover:text-yellow-400">Home</a></li>
+            <li>
+              <a href="about.html" class="hover:text-yellow-400">About</a>
+            </li>
+            <li><a href="shop.html" class="hover:text-yellow-400">Shop</a></li>
+            <li>
+              <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-2">Kontak Kami</h4>
+          <p class="text-sm">Email: support@thrifter.com</p>
+          <p class="text-sm">WhatsApp: 0812-3456-7890</p>
+          <p class="text-sm">Instagram: @thrifter.id</p>
+        </div>
+      </div>
+      <div class="bg-gray-900 text-center py-4 text-sm">
+        &copy; 2025 THRIFTER.com. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

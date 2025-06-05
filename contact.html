@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>THRIFTER.com - Contact</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <script defer>
+      function toggleMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+      function submitForm(event) {
+        event.preventDefault();
+        alert("Terima kasih sudah menghubungi kami!");
+        event.target.reset();
+      }
+    </script>
+  </head>
+  <body class="font-sans">
+    <header class="bg-black text-white p-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold">THRIFTER.com</h1>
+      <div class="md:hidden">
+        <button onclick="toggleMenu()" class="focus:outline-none">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="home.html" class="hover:text-yellow-400">Home</a>
+        <a href="about.html" class="hover:text-yellow-400">About</a>
+        <a href="shop.html" class="hover:text-yellow-400">Shop</a>
+        <a href="cart.html" class="hover:text-yellow-400">Keranjang</a>
+        <a href="profile.html" class="hover:text-yellow-400">Profile</a>
+        <a href="contact.html" class="hover:text-yellow-400">Contact</a>
+      </nav>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden bg-black text-white px-4 py-2 space-y-2"
+    >
+      <a href="home.html" class="block hover:text-yellow-400">Home</a>
+      <a href="about.html" class="block hover:text-yellow-400">About</a>
+      <a href="shop.html" class="block hover:text-yellow-400">Shop</a>
+      <a href="cart.html" class="block hover:text-yellow-400">Keranjang</a>
+      <a href="profile.html" class="block hover:text-yellow-400">Profile</a>
+      <a href="contact.html" class="block hover:text-yellow-400">Contact</a>
+    </div>
+
+    <section id="contact" class="p-4">
+      <h2 class="text-xl font-semibold mb-4">Hubungi Kami</h2>
+      <form
+        onsubmit="submitForm(event)"
+        class="max-w-md mx-auto bg-gray-100 p-6 rounded shadow space-y-4"
+      >
+        <div>
+          <label for="name" class="block font-semibold mb-1">Nama</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full p-2 border rounded"
+          />
+        </div>
+        <div>
+          <label for="email" class="block font-semibold mb-1">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full p-2 border rounded"
+          />
+        </div>
+        <div>
+          <label for="message" class="block font-semibold mb-1">Pesan</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full p-2 border rounded"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+        >
+          Kirim
+        </button>
+      </form>
+    </section>
+
+    <footer class="bg-gray-800 text-white mt-12">
+      <div
+        class="max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        <div>
+          <h4 class="font-bold text-lg mb-3">THRIFTER.com</h4>
+          <p class="text-sm">
+            Platform belanja baju thrift berkualitas dan terkurasi untuk
+            generasi hemat dan sadar lingkungan.
+          </p>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-3">Navigasi</h4>
+          <ul class="space-y-2 text-sm">
+            <li>
+              <a href="home.html" class="hover:text-yellow-400 transition-all"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a href="about.html" class="hover:text-yellow-400 transition-all"
+                >About</a
+              >
+            </li>
+            <li>
+              <a href="shop.html" class="hover:text-yellow-400 transition-all"
+                >Shop</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="hover:text-yellow-400 transition-all"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-bold text-lg mb-3">Kontak Kami</h4>
+          <p class="text-sm">Email: support@thrifter.com</p>
+          <p class="text-sm">WhatsApp: 0812-3456-7890</p>
+          <p class="text-sm">Instagram: @thrifter.id</p>
+        </div>
+      </div>
+      <div class="bg-gray-900 text-center py-4 text-xs md:text-sm">
+        &copy; 2025 THRIFTER.com. All rights reserved.
+      </div>
+    </footer>
+  </body>
+</html>

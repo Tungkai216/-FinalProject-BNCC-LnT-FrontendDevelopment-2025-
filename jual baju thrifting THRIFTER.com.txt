@@ -1,0 +1,24 @@
+jual baju thrifting THRIFTER.com
+banner promosi,produk unggulan(sweater,jeans,t-shirt,oversize)
+navigasi
+-home
+-about
+--konsep web, dan keunggulan yang di tawarkan.
+-shop
+--product page
+---filter
+----product detail page(tambah ke kerangjang)
+-keranjang
+--daftar produk yang ditambah di keranjang, harga di total)
+--hapus item belanja, atau tambah produk
+--bayar produk,kasih screen barang berhasil checkout,transaksi berhasil.
+-profile
+-contact page
+--informasi kontak atau form
+--email,nomor kontak,atau form untuk menghubungi penjual(touch us)
+-admin panel,menambah,menghapus,mengedit produk.
+
+NB:
+-elemen button interaktif saat di hover dan di klik.
+-webiste wajib responsif
+-
